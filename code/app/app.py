@@ -212,9 +212,9 @@ def stream_with_data(body, headers, endpoint):
                             "content": ""
                         })
                     else:
-                        deltaText = line_json["choices"][0]["messages"][0]["delta"]["content"]
-                        if deltaText != "[DONE]":
-                            response["choices"][0]["messages"][1]["content"] += deltaText
+                        delta_text = line_json["choices"][0]["messages"][0]["delta"]["content"]
+                        if delta_text != "[DONE]":
+                            response["choices"][0]["messages"][1]["content"] += delta_text
 
                     yield json.dumps(response).replace("\n", "\\n") + "\n"
     except Exception as e:
@@ -260,11 +260,11 @@ def stream_without_data(response):
         str: A JSON string representation of the response object, excluding the data.
 
     """
-    responseText = ""
+    response_text = ""
     for line in response:
-        deltaText = line["choices"][0]["delta"].get('content')
-        if deltaText and deltaText != "[DONE]":
-            responseText += deltaText
+        delta_text = line["choices"][0]["delta"].get('content')
+        if delta_text and delta_text != "[DONE]":
+            response_text += delta_text
 
         response_obj = {
             "id": line["id"],
@@ -274,7 +274,7 @@ def stream_without_data(response):
             "choices": [{
                 "messages": [{
                     "role": "assistant",
-                    "content": responseText
+                    "content": response_text
                 }]
             }]
         }

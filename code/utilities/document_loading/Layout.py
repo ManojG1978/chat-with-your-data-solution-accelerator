@@ -5,6 +5,10 @@ from ..common.SourceDocument import SourceDocument
 
 
 class LayoutDocumentLoading(DocumentLoadingBase):
+    """
+    A class for loading documents using layout analysis.
+    """
+
     def __init__(self) -> None:
         super().__init__()
 

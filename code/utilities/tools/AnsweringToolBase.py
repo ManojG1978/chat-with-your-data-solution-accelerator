@@ -16,7 +16,7 @@ class AnsweringToolBase(ABC):
     """
 
     def __init__(self) -> None:
-        pass
+        pass # Do nothing
 
     @abstractmethod
     def answer_question(self, question: str, chat_history: List[Dict], **kwargs: Dict) -> Answer:
@@ -31,4 +31,3 @@ class AnsweringToolBase(ABC):
             Returns:
                 Answer: The answer to the question.
             """
-        pass

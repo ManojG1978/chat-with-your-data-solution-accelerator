@@ -132,7 +132,7 @@ class LangChainAgent(OrchestratorBase):
         # Define Agent and Agent Chain
         llm_chain = LLMChain(llm=llm_helper.get_llm(), prompt=prompt)
         agent = ZeroShotAgent(llm_chain=llm_chain,
-                              tools=self.tools, verbose=True)
+                            tools=self.tools, verbose=True)
         agent_chain = AgentExecutor.from_agent_and_tools(
             agent=agent, tools=self.tools, verbose=True, memory=memory
         )

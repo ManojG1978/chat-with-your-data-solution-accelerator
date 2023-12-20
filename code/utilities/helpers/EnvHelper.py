@@ -85,7 +85,7 @@ class EnvHelper:
         os.environ["OPENAI_API_VERSION"] = self.AZURE_OPENAI_API_VERSION
         # Azure Functions - Batch processing
         self.BACKEND_URL = os.getenv('BACKEND_URL', '')
-        self.AzureWebJobsStorage = os.getenv('AzureWebJobsStorage', '')
+        self.AZURE_WEB_JOBS_STORAGE = os.getenv('AzureWebJobsStorage', '')
         self.DOCUMENT_PROCESSING_QUEUE_NAME = os.getenv(
             'DOCUMENT_PROCESSING_QUEUE_NAME', '')
         # Azure Blob Storage

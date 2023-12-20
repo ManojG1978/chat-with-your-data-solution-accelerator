@@ -10,7 +10,7 @@ class ParserBase(ABC):
     """
 
     def __init__(self) -> None:
-        pass
+        pass # Do nothing
 
     @abstractmethod
     def parse(self, question: str, answer: str, source_documents: List[SourceDocument], **kwargs: dict) -> List[dict]:
@@ -26,4 +26,3 @@ class ParserBase(ABC):
         Returns:
             List[dict]: A list of parsed results in the form of dictionaries.
         """
-        pass

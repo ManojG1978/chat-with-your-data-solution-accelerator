@@ -72,8 +72,8 @@ class QuestionAnswerTool(AnsweringToolBase):
             source_documents.append(source_document)
 
         clean_answer = Answer(question=question,
-                              answer=answer,
-                              source_documents=source_documents,
-                              prompt_tokens=cb.prompt_tokens,
-                              completion_tokens=cb.completion_tokens)
+                            answer=answer,
+                            source_documents=source_documents,
+                            prompt_tokens=cb.prompt_tokens,
+                            completion_tokens=cb.completion_tokens)
         return clean_answer

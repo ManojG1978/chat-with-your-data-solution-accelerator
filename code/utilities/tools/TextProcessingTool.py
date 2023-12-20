@@ -37,7 +37,7 @@ class TextProcessingTool(AnsweringToolBase):
 
         result = llm_helper.get_chat_completion(
             [{"role": "system", "content": system_message},
-             {"role": "user", "content": user_content},]
+            {"role": "user", "content": user_content},]
         )
 
         answer = Answer(question=question,

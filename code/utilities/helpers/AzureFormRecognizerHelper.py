@@ -128,7 +128,7 @@ class AzureFormRecognizerClient:
 
                         page_text += form_recognizer_results.content[page_offset + idx]
 
-                    elif not table_id in added_tables:
+                    elif table_id not in added_tables:
                         page_text += self._table_to_html(
                             tables_on_page[table_id])
                         added_tables.add(table_id)
@@ -139,5 +139,5 @@ class AzureFormRecognizerClient:
                 offset += len(page_text)
 
             return page_map
-        except Exception as e:
+        except Exception:
             raise ValueError(f"Error: {traceback.format_exc()}")

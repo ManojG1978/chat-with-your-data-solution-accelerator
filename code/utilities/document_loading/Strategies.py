@@ -38,4 +38,4 @@ def get_document_loader(loader_strategy: str):
         from .WordDocument import WordDocumentLoading
         return WordDocumentLoading()
     else:
-        raise Exception(f"Unknown loader strategy: {loader_strategy}")
+        raise ValueError(f"Unknown loader strategy: {loader_strategy}")

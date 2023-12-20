@@ -10,7 +10,7 @@ class AnswerProcessingBase(ABC):
     """
 
     def __init__(self) -> None:
-        pass
+        pass # Do nothing
 
     @abstractmethod
     def process_answer(self, answer: Answer, **kwargs: dict) -> Answer:
@@ -24,4 +24,3 @@ class AnswerProcessingBase(ABC):
         Returns:
         - Answer: The processed answer.
         """
-        pass

@@ -35,4 +35,3 @@ class DocumentChunkingBase(ABC):
         Returns:
             List[SourceDocument]: The list of chunked source documents.
         """
-        pass

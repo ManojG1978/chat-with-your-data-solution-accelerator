@@ -15,9 +15,9 @@ class Orchestrator:
     """
     
     def __init__(self) -> None:
-        pass
+        pass # Do nothing
 
-    def handle_message(self, user_message: str, chat_history: List[dict], conversation_id: str, orchestrator: OrchestrationSettings, **kwargs: dict) -> dict:
+    def handle_message(self, user_message: str, chat_history: List[dict], conversation_id: str, orchestrator: OrchestrationSettings) -> dict:
         """
         Handles the user message and orchestrates the conversation flow.
 
@@ -26,8 +26,7 @@ class Orchestrator:
             chat_history (List[dict]): The chat history.
             conversation_id (str): The conversation ID.
             orchestrator (OrchestrationSettings): The orchestrator settings.
-            **kwargs (dict): Additional keyword arguments.
-
+            
         Returns:
             dict: The response from the orchestrator.
         """

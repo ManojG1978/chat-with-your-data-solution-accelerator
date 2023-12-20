@@ -15,7 +15,7 @@ class PostPromptTool():
     """
 
     def __init__(self) -> None:
-        pass
+        pass # Do nothing
 
     def validate_answer(self, answer: Answer) -> dict:
         """
@@ -49,13 +49,13 @@ class PostPromptTool():
         # Return filtered answer or just the original one
         if was_message_filtered:
             return Answer(question=answer.question,
-                          answer=config.messages.post_answering_filter,
-                          source_documents=[],
-                          prompt_tokens=cb.prompt_tokens,
-                          completion_tokens=cb.completion_tokens)
+                        answer=config.messages.post_answering_filter,
+                        source_documents=[],
+                        prompt_tokens=cb.prompt_tokens,
+                        completion_tokens=cb.completion_tokens)
         else:
             return Answer(question=answer.question,
-                          answer=answer.answer,
-                          source_documents=answer.source_documents,
-                          prompt_tokens=cb.prompt_tokens,
-                          completion_tokens=cb.completion_tokens)
+                        answer=answer.answer,
+                        source_documents=answer.source_documents,
+                        prompt_tokens=cb.prompt_tokens,
+                        completion_tokens=cb.completion_tokens)
