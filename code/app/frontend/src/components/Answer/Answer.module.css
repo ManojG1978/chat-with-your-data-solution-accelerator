@@ -10,7 +10,6 @@
 }
 
 .answerText {
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 400;
@@ -43,7 +42,6 @@
 }
 
 .answerDisclaimer {
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 400;
@@ -61,7 +59,6 @@
 
 .citationContainer {
     margin-left: 10px;
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 600;
@@ -97,7 +94,6 @@
     flex: none;
     flex-grow: 0;
     z-index: 2;
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 600;
@@ -131,7 +127,6 @@
 .accordionTitle {
     margin-right: 5px;
     margin-left: 10px;
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 400;
@@ -161,7 +156,6 @@
     order: 2;
     flex-grow: 0;
     z-index: 2;
-    font-family: "Serif";
     font: "Segoe UI";
     font-style: normal;
     font-weight: 600;
