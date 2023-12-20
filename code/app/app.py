@@ -364,9 +364,8 @@ def conversation_azure_byod():
         else:
             return conversation_without_data(request)
     except Exception as e:
-        errorMessage = str(e)
-        logging.exception(
-            f"Exception in /api/conversation/azure_byod | {errorMessage}")
+        error_message = str(e)
+        logging.exception("Exception in /api/conversation/azure_byod | %s", error_message)
         return jsonify({"error": "Exception in /api/conversation/azure_byod. See log for more details."}), 500
 
 
@@ -393,7 +392,7 @@ def conversation_custom():
                     (user_assistant_messages[i]['content'], user_assistant_messages[i+1]['content']))
         from utilities.helpers.ConfigHelper import ConfigHelper
         messages = message_orchestrator.handle_message(user_message=user_message, chat_history=chat_history,
-                                                       conversation_id=conversation_id, orchestrator=ConfigHelper.get_active_config_or_default().orchestrator)
+                                                    conversation_id=conversation_id, orchestrator=ConfigHelper.get_active_config_or_default().orchestrator)
 
         response_obj = {
             "id": "response.id",
@@ -408,9 +407,8 @@ def conversation_custom():
         return jsonify(response_obj), 200
 
     except Exception as e:
-        errorMessage = str(e)
-        logging.exception(
-            f"Exception in /api/conversation/custom | {errorMessage}")
+        error_message = str(e)
+        logging.exception("Exception in /api/conversation/custom | %s", error_message)
         return jsonify({"error": "Exception in /api/conversation/custom. See log for more details."}), 500
 
 

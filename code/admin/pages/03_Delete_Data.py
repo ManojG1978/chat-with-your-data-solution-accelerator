@@ -8,7 +8,8 @@ from utilities.helpers.AzureSearchHelper import AzureSearchHelper
 from dotenv import load_dotenv
 load_dotenv()
 
-logger = logging.getLogger('azure.core.pipeline.policies.http_logging_policy').setLevel(logging.WARNING)
+logger = logging.getLogger('azure.core.pipeline.policies.http_logging_policy')
+logger.setLevel(logging.WARNING)
 st.set_page_config(page_title="Delete Data", page_icon=os.path.join('images','favicon.ico'), layout="wide", menu_items=None)
 mod_page_style = """
             <style>
@@ -31,9 +32,25 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 def get_files():
+    """
+    Retrieves a list of files from the search client.
+
+    Returns:
+        A list of files containing their IDs and titles.
+    """
     return search_client.search("*", select="id, title", include_total_count=True)
 
 def output_results(results):
+    """
+    Display the results and allow the user to select files to delete.
+
+    Args:
+        results (list): A list of dictionaries containing the results.
+
+    Returns:
+        dict: A dictionary containing the selected files to delete.
+    """
+    
     files = {}
     if results.get_count() == 0:
         st.info("No files to delete")
@@ -54,6 +71,18 @@ def output_results(results):
 
 
 def delete_files(files):
+    """
+    Deletes the specified files and their associated IDs.
+
+    Args:
+        files (dict): A dictionary containing filenames as keys and a list of associated IDs as values.
+
+    Raises:
+        StopException: If no files are selected.
+
+    Returns:
+        None
+    """
     ids_to_delete = []
     files_to_delete = []
     
@@ -81,5 +110,5 @@ try:
         with st.spinner("Deleting files..."):
             delete_files(files)
 
-except Exception as e:
+except Exception:
     st.error(traceback.format_exc())
