@@ -20,7 +20,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 load_dotenv()
 
 logger = logging.getLogger(
-    'azure.core.pipeline.policies.http_logging_policy').setLevel(logging.WARNING)
+    'azure.core.pipeline.policies.http_logging_policy')
+logger.setLevel(logging.WARNING)
 st.set_page_config(page_title="Ingest Data", page_icon=os.path.join(
     'images', 'favicon.ico'), layout="wide", menu_items=None)
 mod_page_style = """
